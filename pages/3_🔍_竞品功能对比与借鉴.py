@@ -6,6 +6,9 @@
 import streamlit as st
 from pathlib import Path
 
+# 获取项目根目录（上级目录）
+BASE_DIR = Path(__file__).parent.parent
+
 # 页面配置
 st.set_page_config(
     page_title="竞品功能对比与借鉴",
@@ -58,7 +61,7 @@ col_a, col_b, col_c = st.columns([1, 1, 1])
 with col_a:
     st.markdown("**有道词典 - 重点单词标记**")
     try:
-        st.image("/Users/pupu/Desktop/Claude/拍照翻译功能分析_副本/4_团队分享/图片/有道翻译-重点单词标记_副本.jpg", 
+        st.image(str(BASE_DIR / "图片" / "有道翻译-重点单词标记_副本.jpg"), 
                 use_container_width=True)
     except:
         st.info("📷 图片加载失败")
@@ -66,7 +69,7 @@ with col_a:
 with col_b:
     st.markdown("**夸克扫描王 - 段落涂抹翻译**")
     try:
-        st.image("/Users/pupu/Desktop/Claude/拍照翻译功能分析_副本/4_团队分享/图片/夸克扫描王-段落涂抹翻译_副本.jpg", 
+        st.image(str(BASE_DIR / "图片" / "夸克扫描王-段落涂抹翻译_副本.jpg"), 
                 use_container_width=True)
     except:
         st.info("📷 图片加载失败")
@@ -74,7 +77,7 @@ with col_b:
 with col_c:
     st.markdown("**有道词典 - 快速收藏单词及句子**")
     try:
-        st.image("/Users/pupu/Desktop/Claude/拍照翻译功能分析_副本/4_团队分享/图片/有道翻译-快速收藏单词及句子_副本.jpg", 
+        st.image(str(BASE_DIR / "图片" / "有道翻译-快速收藏单词及句子_副本.jpg"), 
                 use_container_width=True)
     except:
         st.info("📷 图片加载失败")
@@ -114,7 +117,7 @@ col_a, col_b, col_c = st.columns([1, 1, 1])
 with col_a:
     st.markdown("**百度翻译 - 语法分析**")
     try:
-        st.image("/Users/pupu/Desktop/Claude/拍照翻译功能分析_副本/4_团队分享/图片/百度-语法分析_副本.jpg", 
+        st.image(str(BASE_DIR / "图片" / "百度-语法分析_副本.jpg"), 
                 use_container_width=True)
     except:
         st.info("📷 图片加载失败")
@@ -122,7 +125,7 @@ with col_a:
 with col_b:
     st.markdown("**作业帮 - AI对话辅导**")
     try:
-        st.image("/Users/pupu/Desktop/Claude/拍照翻译功能分析_副本/4_团队分享/图片/作业帮-对话辅导-语法分析_副本.jpg", 
+        st.image(str(BASE_DIR / "图片" / "作业帮-对话辅导-语法分析_副本.jpg"), 
                 use_container_width=True)
     except:
         st.info("📷 图片加载失败")
@@ -130,7 +133,7 @@ with col_b:
 with col_c:
     st.markdown("**快对 - 问小对（段落）**")
     try:
-        st.image("/Users/pupu/Desktop/Claude/拍照翻译功能分析_副本/4_团队分享/图片/点击问小对-段落.jpg", 
+        st.image(str(BASE_DIR / "图片" / "点击问小对-段落.jpg"), 
                 use_container_width=True)
     except:
         st.info("📷 图片加载失败")

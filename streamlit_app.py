@@ -7,6 +7,10 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from pathlib import Path
+import os
+
+# 获取当前文件所在目录
+BASE_DIR = Path(__file__).parent
 
 # 页面配置
 st.set_page_config(
@@ -19,8 +23,8 @@ st.set_page_config(
 # 读取数据
 @st.cache_data
 def load_data():
-    # 使用相对路径
-    data_path = "data/使用频次与留存/new拍照翻译)使用次数摸排.csv"
+    # 使用绝对路径（基于当前文件位置）
+    data_path = BASE_DIR / "data" / "使用频次与留存" / "new拍照翻译)使用次数摸排.csv"
     df = pd.read_csv(data_path, encoding='utf-8-sig')
     return df
 

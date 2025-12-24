@@ -2,6 +2,10 @@ import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from pathlib import Path
+import os
+
+# 获取项目根目录（上级目录）
+BASE_DIR = Path(__file__).parent.parent
 
 # 页面配置
 st.set_page_config(
@@ -15,8 +19,8 @@ st.set_page_config(
 @st.cache_data
 def load_image_labels():
     """加载图片标签数据"""
-    weekday_path = "data/图片内容分布/工作日标签.csv"
-    weekend_path = "data/图片内容分布/周末标签.csv"
+    weekday_path = BASE_DIR / "data" / "图片内容分布" / "工作日标签.csv"
+    weekend_path = BASE_DIR / "data" / "图片内容分布" / "周末标签.csv"
     
     df_weekday = pd.read_csv(weekday_path)
     df_weekend = pd.read_csv(weekend_path)
@@ -29,7 +33,7 @@ def load_image_labels():
 @st.cache_data
 def load_feedback_data():
     """加载用户反馈数据"""
-    feedback_path = "data/用户反馈/用户反馈数据_已打标_8000条_20并发.csv"
+    feedback_path = BASE_DIR / "data" / "用户反馈" / "用户反馈数据_已打标_8000条_20并发.csv"
     df = pd.read_csv(feedback_path)
     return df
 
@@ -117,7 +121,7 @@ try:
         with col1:
             st.markdown("##### 1️⃣ 阅读理解（有问题的练习题）")
             try:
-                st.image("data/示例图片/拍照翻译列表 (105)-1.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (105)-1.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -129,7 +133,7 @@ try:
         with col2:
             st.markdown("##### 2️⃣ 阅读文章（纯文本，无问题）")
             try:
-                st.image("data/示例图片/拍照翻译列表 (22)-2.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (22)-2.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -145,7 +149,7 @@ try:
         with col3:
             st.markdown("##### 3️⃣ 完形填空")
             try:
-                st.image("data/示例图片/拍照翻译列表 (104)-1.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (104)-1.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -157,7 +161,7 @@ try:
         with col4:
             st.markdown("##### 4️⃣ 语法练习")
             try:
-                st.image("data/示例图片/拍照翻译列表 (112).jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (112).jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -173,7 +177,7 @@ try:
         with col5:
             st.markdown("##### 5️⃣ 词汇练习")
             try:
-                st.image("data/示例图片/拍照翻译列表 (20)-2.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (20)-2.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -185,7 +189,7 @@ try:
         with col6:
             st.markdown("##### 6️⃣ 对话文本")
             try:
-                st.image("data/示例图片/拍照翻译列表 (10)-1.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (10)-1.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -203,7 +207,7 @@ try:
         with col7:
             st.markdown("##### 7️⃣ 练习/作业材料（48.1%）")
             try:
-                st.image("data/示例图片/拍照翻译列表 (105)-1.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (105)-1.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -215,7 +219,7 @@ try:
         with col8:
             st.markdown("##### 8️⃣ 正式教材（17.7%）")
             try:
-                st.image("data/示例图片/拍照翻译列表 (110).jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (110).jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -231,7 +235,7 @@ try:
         with col9:
             st.markdown("##### 9️⃣ 试卷（7.3%，周末高频）")
             try:
-                st.image("data/示例图片/拍照翻译列表 (12)-3.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (12)-3.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -243,7 +247,7 @@ try:
         with col10:
             st.markdown("##### 🔟 屏幕截图（6.9%）")
             try:
-                st.image("data/示例图片/拍照翻译列表 (106)-2.jpg", 
+                st.image(str(BASE_DIR / "data" / "示例图片" / "拍照翻译列表 (106)-2.jpg"), 
                         use_container_width=True)
             except:
                 st.warning("图片加载失败")
@@ -657,7 +661,7 @@ try:
     st.markdown("##### 🔊 发音朗读问题详细数据")
     
     # 加载发音朗读详细数据
-    pronunciation_detail_path = "data/用户反馈/发音朗读问题详细数据.csv"
+    pronunciation_detail_path = BASE_DIR / "data" / "用户反馈" / "发音朗读问题详细数据.csv"
     df_pronunciation = pd.read_csv(pronunciation_detail_path)
     
     # 显示统计信息
@@ -698,7 +702,7 @@ try:
     st.markdown("##### 💡 产品建议详细数据")
     
     # 加载产品建议详细数据
-    suggestion_detail_path = "data/用户反馈/产品建议详细数据.csv"
+    suggestion_detail_path = BASE_DIR / "data" / "用户反馈" / "产品建议详细数据.csv"
     df_suggestion = pd.read_csv(suggestion_detail_path)
     
     # 显示统计信息
