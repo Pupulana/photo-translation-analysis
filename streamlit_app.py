@@ -19,8 +19,8 @@ st.set_page_config(
 # 读取数据
 @st.cache_data
 def load_data():
-    # 使用绝对路径
-    data_path = "/Users/pupu/Desktop/Claude/拍照翻译功能分析/1_定量分析/1.1_使用频次分布与留存/new拍照翻译)使用次数摸排.csv"
+    # 使用相对路径
+    data_path = "data/使用频次与留存/new拍照翻译)使用次数摸排.csv"
     df = pd.read_csv(data_path, encoding='utf-8-sig')
     return df
 
